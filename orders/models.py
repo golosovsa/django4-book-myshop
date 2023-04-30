@@ -1,19 +1,28 @@
+from decimal import Decimal
+
 from django.conf import settings
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+
+from coupons.models import Coupon
 from shop.models import Product
 
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
-    address = models.CharField(max_length=250)
-    postal_code = models.CharField(max_length=20)
-    city = models.CharField(max_length=100)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    paid = models.BooleanField(default=False)
-    stripe_id = models.CharField(max_length=250, blank=True)
+    first_name = models.CharField(verbose_name=_('first name'), max_length=50)
+    last_name = models.CharField(verbose_name=_('last name'), max_length=50)
+    email = models.EmailField(verbose_name=_('e-mail'), )
+    address = models.CharField(verbose_name=_('address'), max_length=250)
+    postal_code = models.CharField(verbose_name=_('postal code'), max_length=20)
+    city = models.CharField(verbose_name=_('city'), max_length=100)
+    created = models.DateTimeField(verbose_name=_('created'), auto_now_add=True)
+    updated = models.DateTimeField(verbose_name=_('updated'), auto_now=True)
+    paid = models.BooleanField(verbose_name=_('paid'), default=False)
+    stripe_id = models.CharField(verbose_name=_('stripe id'), max_length=250, blank=True)
+    coupon = models.ForeignKey(verbose_name=_('coupon'), to=Coupon, related_name='orders', null=True, blank=True,
+                               on_delete=models.SET_NULL)
+    discount = models.IntegerField(verbose_name=_('discount'), default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
 
     class Meta:
         ordering = ['-created']
@@ -24,8 +33,17 @@ class Order(models.Model):
     def __str__(self):
         return f'Order {self.pk}'
 
-    def get_total_cost(self):
+    def get_total_cost_before_discount(self):
         return sum(item.get_cost() for item in self.items.all())
+
+    def get_discount(self):
+        if not self.discount:
+            return Decimal(0)
+        total_cost = self.get_total_cost_before_discount()
+        return total_cost * (self.discount / Decimal(100))
+
+    def get_total_cost(self):
+        return self.get_total_cost_before_discount() - self.get_discount()
 
     def get_stripe_url(self):
         if not self.stripe_id:

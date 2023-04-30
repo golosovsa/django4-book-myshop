@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-30 13:07+0000\n"
+"PO-Revision-Date: 2023-04-30 13:10+0000\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.9.9\n"
+
+#: cart/forms.py:9
+msgid "quantity"
+msgstr "количество"
+
+#: core/settings.py:113
+msgid "English"
+msgstr "Английский"
+
+#: core/settings.py:114
+msgid "Russian"
+msgstr "Русский"
+
+#: core/urls.py:28
+msgid "cart/"
+msgstr "корзина"
+
+#: core/urls.py:29
+msgid "orders/"
+msgstr "заказы"
+
+#: core/urls.py:30
+msgid "payment/"
+msgstr "оплата"
+
+#: core/urls.py:31
+#| msgid "coupon"
+msgid "coupons/"
+msgstr "купоны"
+
+#: coupons/forms.py:6
+msgid "Coupon"
+msgstr "купон"
+
+#: orders/models.py:13
+msgid "first name"
+msgstr "имя"
+
+#: orders/models.py:14
+msgid "last name"
+msgstr "фамилия"
+
+#: orders/models.py:15
+msgid "e-mail"
+msgstr "электронная почта"
+
+#: orders/models.py:16
+msgid "address"
+msgstr "адрес"
+
+#: orders/models.py:17
+msgid "postal code"
+msgstr "почтовый индекс"
+
+#: orders/models.py:18
+msgid "city"
+msgstr "город"
+
+#: orders/models.py:19
+msgid "created"
+msgstr "создан"
+
+#: orders/models.py:20
+msgid "updated"
+msgstr "обновлен"
+
+#: orders/models.py:21
+msgid "paid"
+msgstr "оплачен"
+
+#: orders/models.py:22
+msgid "stripe id"
+msgstr "идентификатор stripe"
+
+#: orders/models.py:23
+msgid "coupon"
+msgstr "купон"
+
+#: orders/models.py:25
+msgid "discount"
+msgstr "скидка"
+
+#: orders/templates/orders/order/create.html:3
+#: orders/templates/orders/order/create.html:5
+msgid "Checkout"
+msgstr "Оплатить"
+
+#: orders/templates/orders/order/create.html:7
+msgid "Your order"
+msgstr "Ваш заказ"
+
+#: orders/templates/orders/order/create.html:17
+#, python-format
+msgid ""
+"\n"
+"                        \"%(code)s\" (%(discount)s%% off)\n"
+"                    "
+msgstr ""
+"\n"
+"                        \"%(code)s\" (%(discount)s%% скидка)\n"
+"                    "
+
+#: orders/templates/orders/order/create.html:24
+msgid "Total"
+msgstr "Всего"
+
+#: orders/templates/orders/order/create.html:28
+msgid "Place order"
+msgstr "Разместить заказ"
+
+#: orders/urls.py:9
+#| msgid "created"
+msgid "create/"
+msgstr "создать"
+
+#: payment/urls.py:9
+msgid "process/"
+msgstr "обработать"
+
+#: payment/urls.py:10
+msgid "completed/"
+msgstr "завершено"
+
+#: payment/urls.py:11
+msgid "canceled/"
+msgstr "отменено"
+
+#: shop/templates/shop/base.html:11 shop/templates/shop/base.html:16
+msgid "My shop"
+msgstr "Мой магазин"
+
+#: shop/templates/shop/base.html:22
+msgid "Your cart"
+msgstr "Ваша корзина"
+
+#: shop/templates/shop/base.html:24
+#, python-format
+msgid ""
+"\n"
+"                        %(items)s item, $%(total)s\n"
+"                    "
+msgid_plural ""
+"\n"
+"                        %(items)s items, $%(total)s\n"
+"                    "
+msgstr[0] ""
+"\n"
+"%(items)s штук, $%(total)s"
+msgstr[1] ""
+"\n"
+"%(items)s штука, $%(total)s"
+msgstr[2] ""
+"\n"
+"%(items)s штуки, $%(total)s"
+msgstr[3] ""
+"\n"
+"%(items)s штук, $%(total)s"
+
+#: shop/templates/shop/base.html:33
+msgid "Your cart is empty."
+msgstr "Ваша корзина пуста"
+
+#: shop/templates/shop/product/detail.html:17
+msgid "Add to cart"
+msgstr "Добавить в корзину"
+
+#: shop/templates/shop/product/detail.html:22
+msgid "People who bought this alo bought"
+msgstr "Люди, купившие этот продукт, покупают так-же"
